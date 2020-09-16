@@ -532,6 +532,10 @@ class Tron(object):
         info = self.get_account(addr)
         return Decimal(info.get("balance", 0)) / 1_000_000
 
+    def get_account_balance_in_sun(self, addr: TAddress) -> int:
+        info = self.get_account(addr)
+        return info.get("balance", 0)
+
     def get_account_asset_balances(self, addr: TAddress) -> dict:
         """Get all TRC10 token balances of an account."""
         info = self.get_account(addr)
